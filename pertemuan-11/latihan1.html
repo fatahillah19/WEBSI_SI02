@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    
+</head>
+<body>
+    <p id="teks">Halo semuanya</p>
+
+    <button onclick="ubahTeks()">Ubah Teks</button>
+    <button onclick="ubahWarna()">Ubah Teks</button>
+    <button onclick="sembunyikan()">Ubah Teks</button>
+    <button onclick="tampilkan()">Ubah Teks</button> 
+
+
+    <script>
+        function ubahTeks() {
+            document.getElementById("teks").innerHTML = "<b>Teks telah diubah!</b>";
+        }
+         function ubahWarna() {
+            document.getElementById("teks").style.color = "red";
+        }
+         function sembunyikan() {
+            document.getElementById("teks").style.display = "none";
+        }
+         function tampilkan() {
+            document.getElementById("teks").style.display = "block";
+        }
+    </script>
+    
+</body>
+</html>
