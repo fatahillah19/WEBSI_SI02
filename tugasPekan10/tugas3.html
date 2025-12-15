@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Interaktif</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 40px;
+        }
+
+        .faq-container {
+            max-width: 700px;
+            margin: auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .question {
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #eeeeee;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .answer {
+            display: none;
+            padding: 12px;
+            background-color: #939090;
+            border-left: 4px solid #2196f3;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="faq-container">
+    <h1>Halaman FAQ</h1>
+
+    <div class="question">1. Apa itu jQuery?</div>
+    <div class="answer">jQuery adalah library JavaScript untuk mempermudah manipulasi DOM.</div>
+
+    <div class="question">2. Apa fungsi FAQ?</div>
+    <div class="answer">FAQ membantu menjawab pertanyaan umum pengguna.</div>
+
+    <div class="question">3. Apa itu toggle?</div>
+    <div class="answer">Toggle digunakan untuk menampilkan dan menyembunyikan elemen.</div>
+
+    <div class="question">4. Apa fungsi hover?</div>
+    <div class="answer">Hover mendeteksi saat mouse berada di atas elemen.</div>
+
+    <div class="question">5. Apakah jQuery masih digunakan?</div>
+    <div class="answer">Ya, jQuery masih digunakan pada banyak website lama dan sederhana.</div>
+</div>
+
+<script>
+    $(document).ready(function(){
+
+        $('.question').click(function(){
+            $(this).next('.answer').toggle();
+        });
+
+        $('.question').hover(
+            function(){
+                $(this).css('background-color', '#2196f3')
+                       .css('color', 'white');
+            },
+            function(){
+                $(this).css('background-color', '#eeeeee')
+                       .css('color', 'black');
+            }
+        );
+
+    });
+</script>
+
+</body>
+</html>

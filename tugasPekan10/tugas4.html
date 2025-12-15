@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Effects</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .slideshow-container {
+            position: relative; 
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+
+
+
+        .slide-area {
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .slide {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+
+        }
+        .slide:first-child {
+            display: block;
+            position: relative;
+        }
+
+        .buttons {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #17752c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 0 5px;
+            position:center;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>slideshow gambar sederhana</h1>
+
+    <div class="slideshow-container">
+        <img class="slide" src="https://pict.sindonews.net/webp/732/pena/news/2024/09/17/156/1456851/10-gunung-terindah-di-indonesia-untuk-mendaki-nomor-2-punya-padang-edelweis-fso.webp" alt="Gambar 1">
+        <img class="slide" src="https://aws-images-prod.sindonews.net/dyn/600/pena/sindo-article/original/2024/09/17/gunung%20papandayan.jpg" alt="Gambar 2">
+        <img class="slide" src="https://aws-images-prod.sindonews.net/dyn/600/pena/sindo-article/original/2024/09/17/gunung%20prau.jpg" alt="Gambar 3">
+    </div>
+
+    <div class="buttons">
+        <button id="prevBtn" class="btn">Sebelumnya</button>
+        <button id="nextBtn" class="btn">Berikutnya</button>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            var slides = $('.slide');
+            var currentSlide = 0;
+            var slideInterval = 3000; 
+            var fadeSpeed = 800; 
+
+            function showSlide(index) {
+                slides.eq(currentSlide).fadeOut(fadeSpeed, function() {
+                    currentSlide = index;
+                    slides.eq(currentSlide).fadeIn(fadeSpeed);
+                });
+            }
+
+            $('#nextBtn').click(function() {
+                var nextIndex = (currentSlide + 1) % slides.length
+                showSlide(nextIndex);
+            });
+
+            $('#prevBtn').click(function() {
+                var prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(prevIndex);
+                
+            });
+            
+        });
+    </script>
+
+</body>
+</html>

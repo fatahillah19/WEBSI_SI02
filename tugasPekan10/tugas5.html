@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Method Chaining</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        #notification {
+            width: 300px;
+            padding: 15px;
+            text-align: center;
+            color: rgb(245, 243, 241);
+            background-color: #0e7cc1; 
+            border-radius: 5px;
+            display: none; 
+            opacity: 0;
+        }
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Notifikasi Animasi Chaining</h2>
+    <button id="show-btn">Tampilkan Notifikasi</button>
+
+    <div class="container">
+        <div id="notification">
+            Hallo Brother      </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#show-btn").click(function(){
+                $("#notification").stop(true).css({"background-color": "#0e7cc1", "display": "none", "opacity": 0});
+
+                $("#notification")
+                    .css("background-color", "blue") 
+                    .animate({opacity: 1, height: 'toggle'}, {duration: 600, specialEasing: {opacity: 'linear', height: 'swing'}})
+                    .delay(3000)
+                    .animate({opacity: 0, height: 'toggle'}, {duration: 600, specialEasing: {opacity: 'linear', height: 'swing'}}); 
+
+                
+                $("h2").hide( "slow", function (){});
+                $("h2").show(2000)("slow", function (){});
+                alert("")
+            });
+        });
+    </script>
+
+</body>
+</html>
